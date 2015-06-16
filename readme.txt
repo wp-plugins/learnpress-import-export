@@ -1,4 +1,4 @@
-===  LearnPress Export & Import ===
+===  LearnPress Import & Export ===
 Contributors: thimpress, tunnhn  
 Donate link: http://thimpress.com/learnpress
 Tags: learnpress, import, export, lms, elearning, e-learning, learning management system, education, course, courses, quiz, quizzes
