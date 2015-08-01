@@ -208,7 +208,7 @@ function lpr_export_header( $post_ids ){
             }
         }
     }
-    if( empty( $filename ) ) wp_die( __( 'Export fail', 'learn_press' ) );
+    if( empty( $filename ) ) wp_die( __( 'Export fail', 'learnpress_import_export' ) );
     $filename .= '-' .date( 'Ymd' ) . '.xml';
 
 	header( 'Content-Description: File Transfer' );

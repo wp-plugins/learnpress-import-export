@@ -3,10 +3,30 @@ if ( !defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+/**
+ * Class LPR_Export_Import
+ */
 class LPR_Export_Import{
+    /**
+     * @var object
+     */
     private static $_instance 	= false;
+
+    /**
+     * @var string
+     */
     private $_plugin_url		= '';
+
+    /**
+     * @var string
+     */
     private $_plugin_path		= '';
+
+    /**
+     * @var string
+     */
+    protected $_export = null;
+
     /**
      * Constructor
      */
@@ -14,6 +34,9 @@ class LPR_Export_Import{
 
         $this->_plugin_path = LPR_EXPORT_IMPORT_PATH;
         $this->_plugin_url 	= untrailingslashit( plugins_url( '/', __FILE__ ) );
+
+        // includes required files
+        $this->_includes();
 
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
@@ -24,14 +47,57 @@ class LPR_Export_Import{
 
         //add_filter( 'page_row_actions', array( $this, 'course_row_actions' ), 1 );
 
-        add_action( 'admin_menu', array( $this, 'admin_menu' ), 1 );
+        add_action( 'admin_menu', array( $this, 'admin_menu' ), 10000 );
         add_action( 'admin_notices', array( $this, 'admin_notice' ) );
 
         add_filter( 'learn_press_row_action_links', array( $this, 'course_row_actions' ) );
+
+        add_action( 'admin_init', array( $this, 'do_export' ) );
+    }
+
+    function do_export(){
+        $lms = ! empty( $_POST['lsm_export'] ) ? $_POST['lsm_export'] : false;
+        if( ! $lms ) return;
+        $export = LPR_Export::instance();
+        foreach( $lms as $l ){
+            $provider = LPR_Export::get_provider( $l );
+            if( $provider ){
+                $data = $provider->export_courses();
+                echo "[";print_r($data);echo "]";
+            }
+        }
+        die();
+    }
+
+    function get_exporter(){
+        return $this->_export;
+    }
+
+    /**
+     * Includes required files
+     *
+     * @access private
+     */
+    private function _includes(){
+        require_once( $this->_plugin_path . '/incs/class-lpr-export-base.php' );
+        require_once( $this->_plugin_path . '/incs/class-lpr-export.php' );
+
+        $provider = LPR_Export::get_provider( 'courseware' );
     }
 
     function admin_menu(){
+        add_submenu_page(
+            'learn_press',
+            __( 'Export', 'learnpress_import_export' ),
+            __( 'Export', 'learnpress_import_export' ),
+            'manage_options',
+            'learnpress-export',
+            array( $this, 'export' )
+        );
+    }
 
+    function export(){
+        require_once( dirname( __FILE__ ) . '/views/export-form.php' );
     }
 
     function do_bulk_actions(){
@@ -102,7 +168,7 @@ class LPR_Export_Import{
             //$actions['lpr-export'] = sprintf('<a href="%s">%s</a>', admin_url('edit.php?post_type=lpr_course&action=export&post=' . $post->ID ) , __('Export Course') );
             $actions[] = array(
                 'link'      => admin_url('edit.php?post_type=lpr_course&action=export&post=' . $post->ID ),
-                'title'     => __( 'Export this course', 'learn_press' ),
+                'title'     => __( 'Export this course', 'learnpress_import_export' ),
                 'class'     => 'lpr-export'
             );
         }
@@ -159,16 +225,16 @@ class LPR_Export_Import{
 
                 case 1: // import success with out any duplicate course
                     $type = "updated";
-                    $message_text = __('Imports all courses successfully', 'learn_press');
+                    $message_text = __('Imports all courses successfully', 'learnpress_import_export');
                     break;
                 case 2: // import success with some of duplicate course
                     $type = "error";
-                    $message_text = __('Some courses are duplicate, please select it in the list to duplicate if you want', 'learn_press');
+                    $message_text = __('Some courses are duplicate, please select it in the list to duplicate if you want', 'learnpress_import_export');
                     break;
 
                 default: // no course imported
                     $type = "error";
-                    $message_text = __('No course is imported. Please try again', 'learn_press');
+                    $message_text = __('No course is imported. Please try again', 'learnpress_import_export');
                     break;
 
             }

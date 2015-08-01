@@ -22,12 +22,12 @@ function lpr_certificate_post_type() {
 	register_post_type( LPR_CERTIFICATE_CPT,
 		array(
 			'labels'             => array(
-				'name'          => __( 'Certificate', 'learn_press' ),
-				'menu_name'     => __( 'Certificates', 'learn_press' ),
-				'singular_name' => __( 'Certificate', 'learn_press' ),
-				'add_new_item'  => __( 'Add New Certificate', 'learn_press' ),
-				'edit_item'     => __( 'Edit Certificate', 'learn_press' ),
-				'all_items'     => __( 'Certificates', 'learn_press' ),
+				'name'          => __( 'Certificate', 'learnpress_import_export' ),
+				'menu_name'     => __( 'Certificates', 'learnpress_import_export' ),
+				'singular_name' => __( 'Certificate', 'learnpress_import_export' ),
+				'add_new_item'  => __( 'Add New Certificate', 'learnpress_import_export' ),
+				'edit_item'     => __( 'Edit Certificate', 'learnpress_import_export' ),
+				'all_items'     => __( 'Certificates', 'learnpress_import_export' ),
 			),
 			'public'             => false,
 			//'taxonomies'         => array( 'assignment-type' ),

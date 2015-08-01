@@ -1,7 +1,7 @@
-===  LearnPress Import & Export ===
+===  LearnPress Export Import - WordPress extension for LearnPress ===  
 Contributors: thimpress, tunnhn  
-Donate link: http://thimpress.com/learnpress
-Tags: learnpress, import, export, lms, elearning, e-learning, learning management system, education, course, courses, quiz, quizzes
+Donate link:  
+Tags: lms, elearning, e-learning, learning management system, education, course, courses, quiz, quizzes, questions, training, guru, sell courses  
 Requires at least: 3.8  
 Tested up to: 4.2.2  
 Stable tag: trunk  
@@ -11,17 +11,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 LearnPress Export/Import bring you feature to export course, lesson, quiz, question from a LearnPress site to back up or bring to another LearnPress site.
 
 == Description ==  
-[LearnPress](https://wordpress.org/plugins/learnpress) Export/Import bring you feature to export courses, lessons, quizzes, questions from a LearnPress WordPress LMS site to back up or bring to another LearnPress site.
+LearnPress Export/Import bring you feature to export course, lesson, quiz, question from a LearnPress site to back up or bring to another LearnPress site.
 
-**Free add-ons for LearnPress WordPress LMS Plugin:**
+**Other free add-ons for LearnPress are available in WordPress:**  
 
-- <a href="https://wordpress.org/plugins/learnpress-wishlist" target="_blank">LearnPress Wishlist</a> - add courses to a wishlist for students.
-- <a href="https://wordpress.org/plugins/learnpress-course-review" target="_blank">LearnPress Course Review</a> - review course for enrolled students.
-- <a href="https://wordpress.org/plugins/learnpress-prerequisites-courses" target="_blank">LearnPress Prerequisites Courses</a> - require student to pass some courses in order to enroll other course.
+- <a href="https://wordpress.org/plugins/learnpress-wishlist/" target="_blank">LearnPress Wishlist</a> - add courses to a wishlist for students.  
+- <a href="https://wordpress.org/plugins/learnpress-course-review/" target="_blank">LearnPress Course Review</a> - review course for enrolled students.  
+- <a href="https://wordpress.org/plugins/learnpress-prerequisites-courses/" target="_blank">LearnPress Prerequisites Courses</a> - require student to pass some courses in order to enroll other course.  
 - <a href="https://wordpress.org/plugins/learnpress-bbpress" target="_blank">LearnPress bbPress</a> - add bbPress Forum support for LearnPress.  
-- <a href="https://wordpress.org/plugins/learnpress-buddypress" target="_blank">LearnPress BuddyPress</a> - add BuddyPress support for LearnPress.
+- <a href="https://wordpress.org/plugins/learnpress-buddypresss" target="_blank">LearnPress BuddyPress</a> - add BuddyPress support for LearnPress.  
 
-**Premium add-ons for LearnPress WordPress LMS Plugin:**
+**Premium Plugins (add-ons) for LearnPress WordPress LMS Plugin**
 
 - <a href="http://thimpress.com/shop/certificates-add-on-for-learnpress/" target="_blank">Certificates add-on for LearnPress</a> - adding drag & drop certificates builder as well as selecting designed certificate for each LMS course, your student will get particular certificate when they finished a course.  
 - <a href="http://thimpress.com/shop/co-instructors-add-on-for-learnpress/" target="_blank">Co-instructors add-on for LearnPress</a> - multiple instructors support for each LMS course.  
@@ -48,7 +48,10 @@ Check out <a href="http://docs.thimpress.com/learnpress" target="_blank">LearnPr
 
 1. LearnPress Export Import screenshot.  
 
-== Changelog ==
+== Changelog ==  
+
+= 0.9.1 =  
+1. Updated language file  
 
 = 0.9.0 =  
 The first beta release.  
@@ -58,4 +61,4 @@ Later :)
 
 == Other note ==  
 <a href="http://docs.thimpress.com/learnpress" target="_blank">Documentation</a> is available in ThimPress site.  
-<a href="https://github.com/LearnPress/LearnPress/" target="_blank">LearnPress GitHub repo.</a>
+<a href="https://github.com/LearnPress/LearnPress/" target="_blank">LearnPress github repo.</a>  
